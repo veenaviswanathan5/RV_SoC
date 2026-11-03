@@ -1,0 +1,21 @@
+# Verilator simulation artifacts
+obj_dir/
+obj_headless/
+
+# Compiled firmware and binaries
+*.elf
+*.bin
+*.o
+*.d
+
+# Archives and backups
+*.tar.gz
+*.zip
+
+# Verification logs
+*.log
+tetris_verification.log
+
+# Editor & OS files
+.vscode/
+.DS_Store

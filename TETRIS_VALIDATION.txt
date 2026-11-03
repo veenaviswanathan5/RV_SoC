@@ -1,0 +1,27 @@
+Validation performed in the authoring environment
+
+PASS: Native C11 build with -Wall -Wextra -Werror, -O2.
+PASS: Shared rule/timing/render tests, including 12000 deterministic input steps.
+PASS: Same tests with AddressSanitizer and UndefinedBehaviorSanitizer.
+      Leak detection disabled because the execution sandbox disallows its
+      process inspection; the game code uses no dynamic allocation.
+PASS: Native freestanding syntax checks on all three firmware sources.
+PASS: Bash syntax checks on all four scripts.
+PASS: Make dry-run of all three firmware targets against a merged starter tree.
+PASS: Visual inspection of a 320x240 preview drawn by the actual C renderer.
+
+Checked behavior: four cells per piece/rotation; boundaries; seven-piece bags;
+one through four line compaction and separated full lines; wall kicks and blocked
+rotation; hard drop and scoring; four-line score; blocked spawn/game over;
+restart/best score; delayed auto-repeat; pause/resume; 32-bit timer wrap;
+grounded lock delay; edge-triggered hard drop; speed floor; score saturation;
+renderer clipping; randomized-sequence board/active-piece invariants.
+
+NOT RUN HERE: RISC-V cross-compilation, Verilator game execution, timer probe
+on the user's timer-modified wrapper, or live keyboard/SDL gameplay. Those tools
+are not installed on this host. scripts/verify_tetris.sh supplies these checks
+for WSL, and scripts/build_tetris.sh supplies the complete build.
+
+No claim of perfection, full ISA compliance, or official Tetris rules is made.
+The current CPU baseline passed strict lint and its original smoke test in the
+user's supplied logs; that evidence is separate from this new firmware.

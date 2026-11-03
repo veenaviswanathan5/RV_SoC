@@ -1,0 +1,97 @@
+
+firmware/demo.elf:     file format elf32-littleriscv
+
+
+Disassembly of section .text:
+
+00000000 <_start>:
+   0:	10001197          	auipc	gp,0x10001
+   4:	80018193          	addi	gp,gp,-2048 # 10000800 <__global_pointer$>
+   8:	10100117          	auipc	sp,0x10100
+   c:	ff810113          	addi	sp,sp,-8 # 10100000 <_stack_top>
+  10:	00000297          	auipc	t0,0x0
+  14:	14028293          	addi	t0,t0,320 # 150 <_data_load>
+  18:	10000317          	auipc	t1,0x10000
+  1c:	fe830313          	addi	t1,t1,-24 # 10000000 <_bss_end>
+  20:	10000397          	auipc	t2,0x10000
+  24:	fe038393          	addi	t2,t2,-32 # 10000000 <_bss_end>
+  28:	00737c63          	bgeu	t1,t2,40 <_start+0x40>
+  2c:	0002ae03          	lw	t3,0(t0)
+  30:	01c32023          	sw	t3,0(t1)
+  34:	00428293          	addi	t0,t0,4
+  38:	00430313          	addi	t1,t1,4
+  3c:	fedff06f          	j	28 <_start+0x28>
+  40:	10000317          	auipc	t1,0x10000
+  44:	fc030313          	addi	t1,t1,-64 # 10000000 <_bss_end>
+  48:	10000397          	auipc	t2,0x10000
+  4c:	fb838393          	addi	t2,t2,-72 # 10000000 <_bss_end>
+  50:	00737863          	bgeu	t1,t2,60 <_start+0x60>
+  54:	00032023          	sw	zero,0(t1)
+  58:	00430313          	addi	t1,t1,4
+  5c:	ff5ff06f          	j	50 <_start+0x50>
+  60:	00000097          	auipc	ra,0x0
+  64:	018080e7          	jalr	24(ra) # 78 <main>
+  68:	300002b7          	lui	t0,0x30000
+  6c:	00828293          	addi	t0,t0,8 # 30000008 <_stack_top+0x1ff00008>
+  70:	00a2a023          	sw	a0,0(t0)
+  74:	0000006f          	j	74 <_start+0x74>
+
+00000078 <main>:
+  78:	000007b7          	lui	a5,0x0
+  7c:	13878793          	addi	a5,a5,312 # 138 <main+0xc0>
+  80:	05200713          	li	a4,82
+  84:	300006b7          	lui	a3,0x30000
+  88:	00178793          	addi	a5,a5,1
+  8c:	00e6a023          	sw	a4,0(a3) # 30000000 <_stack_top+0x1ff00000>
+  90:	0007c703          	lbu	a4,0(a5)
+  94:	fe071ae3          	bnez	a4,88 <main+0x10>
+  98:	00000e13          	li	t3,0
+  9c:	00000613          	li	a2,0
+  a0:	20000337          	lui	t1,0x20000
+  a4:	00ff08b7          	lui	a7,0xff0
+  a8:	ff0005b7          	lui	a1,0xff000
+  ac:	04058593          	addi	a1,a1,64 # ff000040 <_stack_top+0xeef00040>
+  b0:	00010837          	lui	a6,0x10
+  b4:	01400537          	lui	a0,0x1400
+  b8:	00013eb7          	lui	t4,0x13
+  bc:	c00e8e93          	addi	t4,t4,-1024 # 12c00 <_data_load+0x12ab0>
+  c0:	00030693          	mv	a3,t1
+  c4:	00000713          	li	a4,0
+  c8:	011777b3          	and	a5,a4,a7
+  cc:	00c7e7b3          	or	a5,a5,a2
+  d0:	00b7e7b3          	or	a5,a5,a1
+  d4:	00f6a023          	sw	a5,0(a3)
+  d8:	01070733          	add	a4,a4,a6
+  dc:	00468693          	addi	a3,a3,4
+  e0:	fea714e3          	bne	a4,a0,c8 <main+0x50>
+  e4:	50030313          	addi	t1,t1,1280 # 20000500 <_stack_top+0xff00500>
+  e8:	10060613          	addi	a2,a2,256
+  ec:	140e0e13          	addi	t3,t3,320
+  f0:	fdde18e3          	bne	t3,t4,c0 <main+0x48>
+  f4:	30000737          	lui	a4,0x30000
+  f8:	00470713          	addi	a4,a4,4 # 30000004 <_stack_top+0x1ff00004>
+  fc:	ff000537          	lui	a0,0xff000
+ 100:	fff00593          	li	a1,-1
+ 104:	20000637          	lui	a2,0x20000
+ 108:	0100006f          	j	118 <main+0xa0>
+ 10c:	00d62023          	sw	a3,0(a2) # 20000000 <_stack_top+0xff00000>
+ 110:	0207f793          	andi	a5,a5,32
+ 114:	00079e63          	bnez	a5,130 <main+0xb8>
+ 118:	00072783          	lw	a5,0(a4)
+ 11c:	0107f813          	andi	a6,a5,16
+ 120:	00050693          	mv	a3,a0
+ 124:	fe0804e3          	beqz	a6,10c <main+0x94>
+ 128:	00058693          	mv	a3,a1
+ 12c:	fe1ff06f          	j	10c <main+0x94>
+ 130:	00000513          	li	a0,0
+ 134:	00008067          	ret
+ 138:	5652                	.insn	2, 0x5652
+ 13a:	66203233          	.insn	4, 0x66203233
+ 13e:	6172                	.insn	2, 0x6172
+ 140:	656d                	.insn	2, 0x656d
+ 142:	7562                	.insn	2, 0x7562
+ 144:	6666                	.insn	2, 0x6666
+ 146:	7265                	.insn	2, 0x7265
+ 148:	6420                	.insn	2, 0x6420
+ 14a:	6d65                	.insn	2, 0x6d65
+ 14c:	00000a6f          	jal	s4,14c <main+0xd4>
