@@ -4,6 +4,19 @@ This package contains copies of all 20 uploaded RTL modules, a C++ AXI4-Lite
 slave, SDL2 display wrapper, firmware startup/linker files, and tests.
 Use it as a separate working directory first; keep your existing wrapper as a backup.
 
+## Demo & Preview
+
+<div align="center">
+
+### Framebuffer Output
+<img src="docs/media/tetris_preview.png" alt="Tetris Framebuffer Capture" width="500"/>
+
+### Gameplay Demonstration
+https://github.com/user-attachments/assets/docs/media/tetris_demo.mp4
+
+</div>
+
+
 ## Important interface correction
 
 The supplied topCPU already has clk/rst_n and AXI data ports, but instructions
