@@ -12,7 +12,9 @@ Use it as a separate working directory first; keep your existing wrapper as a ba
 <img src="docs/media/tetris_preview.png" alt="Tetris Framebuffer Capture" width="500"/>
 
 ### Gameplay Demonstration
-https://github.com/user-attachments/assets/docs/media/tetris_demo.mp4
+
+https://github.com/user-attachments/assets/26db1ab9-469e-4939-86c5-94690ef0941b
+
 
 </div>
 
